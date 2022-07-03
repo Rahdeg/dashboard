@@ -3,22 +3,25 @@ import './App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
-import {Navbar,Sidebar} from './component';
+import {Navbar,Sidebar, Themesettings} from './component';
 import {Calendar,Colorpicker,Customer,Ecommerce,Editor,Orders,Financial,Line,
   Pie,Bar,Employee,Arial,Kaban,Colormaping,Stalked,Pryamid} from './pages';
 import {useStateContext} from './context/ContextProvider'
 
 
+
+
 function App() {
-  const {activeMenu}= useStateContext();
+  const {activeMenu,themesettings,setthemesettings,currentColor,currentmode}= useStateContext();
   return (
-    <div>
+    <div className={currentmode==='Dark' ?  'dark' : ''}>
     <BrowserRouter>
     <div className='flex relative dark:bg-main-dark-bg'>
     <div className='fixed right-4 bottom-4' style={{zIndex:'1000'}}>
     <TooltipComponent content='Settiings'position='Top'>
     <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' 
-    style={{background:'blue', borderRadius:'50%'}}>
+    style={{background:currentColor, borderRadius:'50%'}}
+    onClick={()=>{setthemesettings(true)}}>
     <FiSettings/>
     </button>
     </TooltipComponent>
@@ -34,16 +37,18 @@ function App() {
         </div>
       )
     }
-    <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu? 'md-ml-72' : 'flex-2'}`}>
+    <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu? 'md:ml-72' : 'flex-2'}`}>
     <div className='fixed md:static bg-main-bg dark:bg-main-bg navbar w-full'>
     <Navbar/>
     </div>
     
     <div>
+    {themesettings && <Themesettings/> }
+    
     <Routes>
     {/*Dashboard*/}
 
-    <Route path='/' element={<Ecommerce />}/>
+    <Route path='/ecommerce' element={<Ecommerce />}/>
     {/*pages*/}
     <Route path='/orders' element={<Orders />}/>
     <Route path='/employees' element={<Employee/>}/>

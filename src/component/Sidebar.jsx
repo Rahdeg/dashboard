@@ -10,7 +10,13 @@ import {useStateContext} from '../context/ContextProvider.js'
 
 
 const Sidebar = () => {
-  const {activeMenu,setActiveMenu} = useStateContext();
+  const {activeMenu,setActiveMenu,currentColor,screenSize} = useStateContext();
+
+  const handleclosesidebar=()=>{
+    if (activeMenu &&  screenSize <= 900) {
+      setActiveMenu(false)
+    }
+  }
   
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
   const normalLink='flex item-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-grey-200 dark:hover:text-black hover:bg-light-gray m-2'
@@ -40,7 +46,8 @@ const Sidebar = () => {
         </p>
         {menu.links.map((link,idx)=>(
          <NavLink to={`/${link.name}`} key={idx} 
-         onClick={()=>{}}
+         onClick={handleclosesidebar}
+         style={({isActive})=>({backgroundColor: isActive? currentColor :''})}
          className={({isActive})=>
         isActive ? activeLink : normalLink}>
          {link.icon} <span className='capitalize'>{link.name} </span>

@@ -4,7 +4,6 @@ import {GoPrimitiveDot } from 'react-icons/go';
 import {Sparked,Pie,Button, Sparkline} from '../component'
 import { earningData,SparklineAreaData,ecomPieChartData } from '../data/dummy';
 import {useStateContext} from '../context/ContextProvider'
-import { IoMdHeartEmpty } from 'react-icons/io';
 
 const Ecommerce = () => {
   const {currentColor} = useStateContext();

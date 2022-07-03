@@ -49,6 +49,7 @@ function App() {
     {/*Dashboard*/}
 
     <Route path='/ecommerce' element={<Ecommerce />}/>
+    <Route path='/' element={<Ecommerce />}/>
     {/*pages*/}
     <Route path='/orders' element={<Orders />}/>
     <Route path='/employees' element={<Employee/>}/>

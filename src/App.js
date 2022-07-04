@@ -5,7 +5,7 @@ import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
 import {Navbar,Sidebar, Themesettings} from './component';
 import {Calendar,Colorpicker,Customer,Ecommerce,Editor,Orders,Financial,Line,
-  Pie,Bar,Employee,Arial,Kaban,Colormaping,Stalked,Pryamid} from './pages';
+  Bar,Employee,Arial,Kaban,Colormaping,Stalked,Pryamid} from './pages';
 import {useStateContext} from './context/ContextProvider'
 
 
@@ -63,7 +63,6 @@ function App() {
     <Route path='/line' element={<Line />}/>
     <Route path='/area' element={<Arial />}/>
     <Route path='/bar' element={<Bar />}/>
-    <Route path='/pie' element={<Pie />}/>
     <Route path='/financial' element={<Financial />}/>
     <Route path='/color-mapping' element={<Colormaping/>}/>
     <Route path='/pyramid' element={<Pryamid />}/>

@@ -15,7 +15,7 @@ Forms to capture and submit data
 
 ## Installation
 
-Clone the repository: git clone https://github.com/your-username/dashboard.git
+Clone the repository: git clone https://github.com/Rahdeg/dashboard.git
 
 Install dependencies: npm install
 
